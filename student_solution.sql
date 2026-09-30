@@ -45,3 +45,15 @@ INSERT INTO Enrollment (EnrollmentID, StudentID, CourseID) VALUES
 
 CREATE VIEW StudentDetails AS
 SELECT
+     Student.StudentName,
+    Course.CourseName,
+    Department.DepartmentName
+FROM Student
+INNER JOIN Enrollment
+    ON Student.StudentID = Enrollment.StudentID
+INNER JOIN Course
+    ON Enrollment.CourseID = Course.CourseID
+INNER JOIN Department
+    ON Student.DepartmentID = Department.DepartmentID;
+
+SELECT * FROM StudentDetails;
